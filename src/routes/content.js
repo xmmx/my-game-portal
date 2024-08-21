@@ -15,6 +15,9 @@ router.get('/add-item', (req, res) => {
 // Обработка формы добавления персонажа или артефакта
 router.post('/add-item', async (req, res) => {
     const { title, description, category } = req.body;
+    if (!title || !category) {
+        return res.status(400).send('Title and category are required fields');
+    }
     try {
         await addItem(title, description, category);
         res.redirect('/');
@@ -32,7 +35,10 @@ router.get('/add-story', (req, res) => {
 
 // Обработка формы добавления истории
 router.post('/add-story', async (req, res) => {
-    const { title, content, relatedItems } = req.body;
+    const { 'story-title': title, 'story-content': content, 'related-items': relatedItems } = req.body;
+    if (!title || !content) {
+        return res.status(400).send('Title and content are required fields');
+    }
     try {
         await addStory(title, content, relatedItems);
         res.redirect('/');
@@ -50,7 +56,10 @@ router.get('/add-media', (req, res) => {
 
 // Обработка формы добавления иллюстрации или видео
 router.post('/add-media', async (req, res) => {
-    const { filename, relatedItems } = req.body;
+    const { filename, 'related-items': relatedItems } = req.body;
+    if (!filename) {
+        return res.status(400).send('Filename is a required field');
+    }
     try {
         await addMedia(filename, relatedItems);
         res.redirect('/');
