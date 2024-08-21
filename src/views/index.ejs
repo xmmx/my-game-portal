@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= pageTitle %></title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Dashboard</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Summary</h2>
+            <p>Characters: <%= dashboardData.totalCharacters %></p>
+            <p>Artifacts: <%= dashboardData.totalArtifacts %></p>
+            <p>Stories: <%= dashboardData.totalStories %></p>
+            <p>Images: <%= dashboardData.totalImages %></p>
+            <p>Videos: <%= dashboardData.totalVideos %></p>
+        </section>
+        <section>
+            <h2>Popular Materials</h2>
+            <!-- Popular materials go here -->
+        </section>
+        <section>
+            <h2>Recent Materials</h2>
+            <!-- Recent materials go here -->
+        </section>
+    </main>
+    <script src="/js/scripts.js"></script>
+</body>
+</html>
