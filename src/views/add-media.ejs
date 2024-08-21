@@ -1,1 +1,29 @@
-<!-- EJS template for adding media -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= pageTitle %></title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <h1><%= pageTitle %></h1>
+    </header>
+    <main>
+        <form id="add-media-form" action="/add-media" method="POST" enctype="multipart/form-data">
+            <label for="media-file">Выберите файл</label>
+            <input type="file" id="media-file" name="media-file" accept="image/*,video/*" required>
+
+            <label for="related-items">Связанные элементы</label>
+            <input type="text" id="related-items" name="related-items" placeholder="Начните вводить название...">
+
+            <button type="submit">Загрузить</button>
+        </form>
+        <div id="upload-progress"></div>
+        <div id="media-preview"></div>
+    </main>
+    <script src="/js/scripts.js"></script>
+</body>
+</html>
